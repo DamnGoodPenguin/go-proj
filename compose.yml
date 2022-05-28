@@ -1,0 +1,15 @@
+services:
+  go-proj:
+    build:
+      context: .
+    ports:
+      - 8067:8068
+  
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - go-proj:/data
+
+volumes:
+  go-proj:
+    driver: local
